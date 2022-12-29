@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>SAFE PASSWORD</title>
+        <script type="text/javascript" src="./eel.js"></script>
+        <script type="text/javascript" src="./main.js"></script>
+        <link rel="stylesheet" href="./main.css">
+    </head>
+    <body onload="settings_opt()">
+    
+        <header>
+            <div id="addnewlink" class="addnew"><a onclick="addnew()" class="circle" href="#addnew">+</a></div>
+            <div id="backlink" style="display:none;"><a onclick="back()" href="#back">Back</a></div>
+        </header>
+
+        <div id="mylist">
+            <table id="list" class="list">
+                <tr><th>URL</th><th>USERNAME</th><th>PASSWORD</th><th>OPTION</th></tr>
+            </table>
+        </div>
+        
+
+        <div id="addnew">
+            <input type="text" id="url" name="url" placeholder="Url">
+            <input type="text" id="user" name="username" placeholder="Username">
+            <input type="text" id="passwd" name="passwd" placeholder="Password">
+            <textarea id="other"></textarea>
+            <button id="addbtn" style="display:none;" value="ADD NEW" onclick="addthis()">ADD NEW</button>
+            <button id="editbtn" style="display:none;" onclick="editthis()">EDIT</button>
+
+        </div>
+
+    </body>
+</html>
