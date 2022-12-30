@@ -15,7 +15,7 @@ function settings_opt(){
 				eel.decode(data[i]["password"])(
 					function(ret){
 						var stars="*".repeat(ret.length);
-						document.getElementById("list").innerHTML+="<tr id='l"+i+"'><td id='url"+i+"'>"+data[i]["url"]+"</td><td id='user"+i+"'>"+data[i]["username"]+"</td><td id='passfake"+i+"'>"+stars+"</td><td style='display:none;' id='pass"+i+"'>"+ret+"</td><td><a href='#edit' onclick='edit("+i+")'>EDIT</a> | <a href='#copy' onclick='copy("+i+")'>COPY</a> | <a href='#see' onclick='see("+i+")'>SEE</a></td><td id='oth"+i+"' style='display:none;'>"+data[i]["backup"]+"</td></tr>";
+						document.getElementById("list").innerHTML+="<tr id='l"+i+"'><td id='url"+i+"'>"+data[i]["url"]+"</td><td id='user"+i+"'>"+data[i]["username"]+"</td><td id='passfake"+i+"'>"+stars+"</td><td style='display:none;' id='pass"+i+"'>"+ret+"</td><td><a href='#edit' onclick='edit("+i+")'>EDIT</a> | <a href='#copy' onclick='copy("+i+")'>COPY</a> | <a id='see"+i+"' href='#see' onclick='see("+i+")'>SEE</a></td><td id='oth"+i+"' style='display:none;'>"+data[i]["backup"]+"</td></tr>";
 					}
 				)
 				
@@ -121,6 +121,13 @@ function copy(i){
 function see(i){
 	var fake=document.getElementById("passfake"+i);
 	var org=document.getElementById("pass"+i);
+
+	var see=document.getElementById("see"+i);
+	if(see.textContent=="SEE"){
+		see.innerText="HIDE";
+	}else{
+		see.innerText="SEE";
+	}
 
 	if(window.getComputedStyle(fake).display==="none"){
 		fake.style.display="block";
