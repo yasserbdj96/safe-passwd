@@ -96,4 +96,5 @@ def edit(url,user,passwd,other,i):
     return "Done!"
 
 
-eel.start("main.html",host="127.0.0.1",port=80,size=(1050,500))
+#eel.start("main.html",host="127.0.0.1",port=80,size=(1050,500))
+eel.start("main.html",host="127.0.0.1",port=80,mode='default')
