@@ -39,7 +39,7 @@
   border-radius: 100%;
   width: 40px;
   height: 40px; 
-  background: green;
+  background: #04AA6D;
   display:inline-block;
   line-height:48px;
   vertical-align:center;
@@ -47,4 +47,18 @@
   color:#ffffff;
   text-decoration: none;
   font-size: 45px;
+}
+
+/**/
+.search{
+  width: 98%;
+  padding: 10px;
+}
+
+.hide{
+  display: none;
+}
+
+.w25p{
+  width: 25%;
 }
