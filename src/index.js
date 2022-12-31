@@ -44,7 +44,7 @@ if ('serviceWorker' in navigator){
 }
 
 
-
+/*
 var download_pwa = document.getElementsByClassName('download_pwa');
 if (download_pwa.length > 0){
     // Code to handle install prompt on desktop
@@ -80,7 +80,7 @@ if (download_pwa.length > 0){
     });
   });
 }
-
+*/
 
 /*function pwa_uninstall(){
   
