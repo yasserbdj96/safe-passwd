@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>SAFE PASSWORD</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=5, viewport-fit=cover">
+        <meta name="description" content="safe-passwd - In order to save all passwords as a list that can be accessed securely with a high level of encryption.">
+        <script type="text/javascript" src="./eel.js"></script>
+        <script type="text/javascript" src="./main.js"></script>
+        <link rel="stylesheet" href="./main.css">
+        <!--script src="./index.js" defer></script>
+        <link rel="manifest" href="./manifest.webmanifest"-->
+        <meta name="theme-color" content="#04AA6D" />
+        <link rel="icon" href="./safe-passwd.png">
+        <link rel="apple-touch-icon" href="./safe-passwd.png">
+    </head>
+    <body onload="run()">
+    
+        <header>
+            <div id="addnewlink" class="addnew"><a onclick="addnew()" class="circle" href="#">+</a></div>
+            <div id="backlink" style="display:none;"><a onclick="back()" href="#">Back</a></div>
+        </header>
+
+        <div id="error" style="display:none;"></div>
+
+        <div id="mylist">
+            <div style="text-align:center;padding:2px;">
+                <input type="text" id="search" name="search" placeholder="Search" class="search" onkeyup="search(this.value)">
+            </div>
+            <table id="list" class="list">
+                <tr><th class="w25p">URL</th><th class="w25p">USERNAME</th><th class="w25p">PASSWORD</th><th class="w25p">OPTION</th></tr>
+            </table>
+        </div>
+        
+
+        <div id="addnew">
+            <input class="inpts" type="text" id="url" name="url" placeholder="Url"><br><br>
+            <input class="inpts" type="text" id="user" name="username" placeholder="Username"><br><br>
+            <input class="inpts" type="text" id="passwd" name="passwd" placeholder="Password"><br><br>
+            <textarea class="inpts" id="other" placeholder="Other"></textarea><br><br>
+            <button id="addbtn" style="display:none;" value="ADD NEW" onclick="addthis()">ADD NEW</button>
+            <button id="editbtn" style="display:none;" onclick="editthis()">EDIT</button>
+
+        </div>
+
+    </body>
+</html>

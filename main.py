@@ -95,6 +95,22 @@ def edit(url,user,passwd,other,i):
         f.truncate()
     return "Done!"
 
+# delete
+@eel.expose
+def delt(ix):
+    filename = 'src/data.json'
+    with open(filename, 'r+') as f:
+        data = json.load(f)
+        del data["data"][ix]
+        f.seek(0)        # <--- should reset file position to the beginning.
+        json.dump(data, f, indent=4)
+        f.truncate()
+    return "Done!"
+
+#iswork:
+@eel.expose
+def iswork():
+    return "True"
 
 #eel.start("main.html",host="127.0.0.1",port=80,size=(1050,500))
-eel.start("main.html",host="127.0.0.1",port=80,mode='default')
+eel.start("index.html",host="127.0.0.1",port=8081,mode='default')

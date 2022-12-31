@@ -1,5 +1,33 @@
 /*var password_key="1234";*/
 
+//iswork:
+function iswork_f(){
+    try {
+        eel.iswork()(
+            function(ret){
+                return ret;
+            }
+        )
+        return "True";
+    } catch(err) {
+        return err.message;
+    }
+}
+
+//
+function run(){
+	var err=iswork_f();
+	if (iswork_f()=="True"){
+		settings_opt();
+	}else{
+		hideall();
+		document.getElementById("error").style.display='block';
+		document.getElementById("error").innerText=err;
+        console.log(err);
+		alert(err);
+	}
+}
+
 //
 function settings_opt(){
 	hideall();
@@ -15,7 +43,12 @@ function settings_opt(){
 				eel.decode(data[i]["password"])(
 					function(ret){
 						var stars="*".repeat(ret.length);
-						document.getElementById("list").innerHTML+="<tr id='l"+i+"'><td id='url"+i+"'>"+data[i]["url"]+"</td><td id='user"+i+"'>"+data[i]["username"]+"</td><td id='passfake"+i+"'>"+stars+"</td><td style='display:none;' id='pass"+i+"'>"+ret+"</td><td><a href='#edit' onclick='edit("+i+")'>EDIT</a> | <a href='#copy' onclick='copy("+i+")'>COPY</a> | <a id='see"+i+"' href='#see' onclick='see("+i+")'>SEE</a></td><td id='oth"+i+"' style='display:none;'>"+data[i]["backup"]+"</td></tr>";
+						var td_url="<td id='url"+i+"'>"+data[i]["url"]+"</td>";
+						var td_user="<td class='copy' id='user"+i+"' onclick='copy("+i+","+'"user"'+")'>"+data[i]["username"]+"</td>";
+						var td_passwd="<td class='copy' id='passfake"+i+"' onclick='copy("+i+","+'"passwd"'+")'>"+stars+"</td><td style='display:none;' id='pass"+i+"'>"+ret+"</td>";
+						var td_opt="<td><a href='#' onclick='edit("+i+")'>EDIT</a> | <a id='see"+i+"' href='#' onclick='see("+i+")'>SEE</a> | <a id='del"+i+"' href='#' onclick='delt("+i+")'>DELETE</a></td>";
+						var td_backup="<td id='oth"+i+"' style='display:none;'>"+data[i]["backup"]+"</td>";
+						document.getElementById("list").innerHTML+="<tr id='l"+i+"'>"+td_url+td_user+td_passwd+td_opt+td_backup+"</tr>";
 					}
 				)
 				
@@ -28,6 +61,7 @@ function settings_opt(){
 function hideall(){
 	document.getElementById("mylist").style.display='none';
 	document.getElementById("addnew").style.display='none';
+	document.getElementById("error").style.display='none';
 }
 
 /*
@@ -103,10 +137,25 @@ function editthis(){
 }
 
 //
-function copy(i){
+function delt(i){
+	eel.delt(i)(
+		function(ret){
+			alert(ret);
+			location.reload();
+		}
+	)
+}
+
+//
+function copy(i,opt){
 	
 	// Get the text field
-	var copyText=document.getElementById("pass"+i).textContent;
+	if (opt=="user"){
+		var copyText=document.getElementById("user"+i).textContent;
+	}else{
+		var copyText=document.getElementById("pass"+i).textContent;
+	}
+	
 
 
 	// Select the text field

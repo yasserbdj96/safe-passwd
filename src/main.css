@@ -62,3 +62,13 @@
 .w25p{
   width: 25%;
 }
+
+/**/
+.copy{
+  cursor: copy;
+}
+
+.inpts {
+  width: 80%;
+  padding: 10px;
+}
