@@ -1,1 +1,19 @@
-ww
+name: Push To GitLab
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Mirror + trigger CI
+      uses: SvanBoxel/gitlab-mirror-and-ci-action@master
+      with:
+        args: "https://gitlab.com/yasserbdj96/safe-passwd"
+      env:
+        FORCE_PUSH: "false"
+        GITLAB_HOSTNAME: "gitlab.com"
+        GITLAB_USERNAME: "yasserbdj96"
+        GITLAB_PASSWORD: ${{ secrets.GITLAB_PASSWORD }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
