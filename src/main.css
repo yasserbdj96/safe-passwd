@@ -2,7 +2,23 @@
     margin: 0px;
     padding: 0px;
     font-family: "Lucida Console", "Courier New", monospace;
- }
+    box-sizing:border-box;
+}
+
+body::after{
+	content:"";
+	background:url(./safe-passwd.png);
+	opacity:0.05;
+	top:0;
+	left:0;
+	bottom:0;
+	right:0;
+	position:absolute;
+	z-index:-1;
+	background-repeat:no-repeat;
+	background-position:center;
+	background-size:30vh;
+}
 
 /**/
 .list {
@@ -51,7 +67,7 @@
 
 /**/
 .search{
-  width: 98%;
+  width: 100%;
   padding: 10px;
 }
 

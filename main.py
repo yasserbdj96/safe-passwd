@@ -8,10 +8,24 @@ import json
 ap = argparse.ArgumentParser()
 ap.add_argument('-p', '--password', required=True)
 ap.add_argument('-c', '--change', required=False)
+ap.add_argument('-f', '--file', required=False)
+ap.add_argument('-po', '--port', required=False)
 args = ap.parse_args()
 
+# json path:
+if args.port==None:
+    port = 8080
+else:
+    port = int(args.port)
+
+# json path:
+global filename
+if args.file==None:
+    filename = 'src/data.json'
+else:
+    filename = args.file
+
 # login:
-filename = 'src/data.json'
 with open(filename, 'r+') as f:
     data = json.load(f)
     if data["password"]!="":
@@ -36,7 +50,6 @@ with open(filename, 'r+') as f:
 if args.change!=None:
     new_password=args.change
     old_password=args.password
-    filename = 'src/data.json'
     with open(filename, 'r+') as f:
         data = json.load(f)
         data["password"]=ashar(new_password,"true",smbls="").encode()
@@ -52,6 +65,13 @@ if args.change!=None:
 
 #
 eel.init('src')
+
+# data_file:
+@eel.expose
+def data_file():
+    with open(filename, 'r') as f:
+        data = json.load(f)
+    return data
 
 # decode
 @eel.expose
@@ -70,7 +90,6 @@ def addnew(url,user,passwd,other):
     passwd=ashar(password_key,passwd,smbls='').encode()
     entry={"url": f"{url}","username": f"{user}","password": f"{passwd}","backup": f"{other}"}
 
-    filename = 'src/data.json'
     with open(filename, 'r+') as f:
         data = json.load(f)
         data["data"].append(entry)
@@ -83,7 +102,6 @@ def addnew(url,user,passwd,other):
 @eel.expose
 def edit(url,user,passwd,other,i):
     passwd=ashar(password_key,passwd,smbls='').encode()
-    filename = 'src/data.json'
     with open(filename, 'r+') as f:
         data = json.load(f)
         data["data"][int(i)]["url"]=url
@@ -98,7 +116,6 @@ def edit(url,user,passwd,other,i):
 # delete
 @eel.expose
 def delt(ix):
-    filename = 'src/data.json'
     with open(filename, 'r+') as f:
         data = json.load(f)
         del data["data"][ix]
@@ -113,4 +130,4 @@ def iswork():
     return "True"
 
 #eel.start("main.html",host="127.0.0.1",port=80,size=(1050,500))
-eel.start("index.html",host="127.0.0.1",port=8081,mode='default')
+eel.start("index.html",host="127.0.0.1",port=port,mode='default')

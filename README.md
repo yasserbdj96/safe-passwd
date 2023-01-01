@@ -21,7 +21,17 @@
 ❯ pip install -r requirements.txt
 ❯ python main.py -p <YOUR_PASSWORD> # This is the same thing for the first time use
 # python main.py -p <YOUR_PASSWORD> -c <YOUR_NEW_PASSWORD> # in order to change the password
+# python main.py -p <YOUR_PASSWORD> -f <YOUR_JSON_PATH>
+# python main.py -p <YOUR_PASSWORD> -po <YOUR_FAVORITE_PORT> # Default is 8080
 ```
+
+<h2>Screenshot:</h2>
+
+<div align="center">
+    <a href="https://raw.githubusercontent.com/yasserbdj96/safe-passwd/main/screenshot/screenshot.png">
+        <img alt="yasserbdj96" height="100" src="https://raw.githubusercontent.com/yasserbdj96/safe-passwd/main/screenshot/screenshot.png">
+    </a>
+</div>
 
 <br>
 <h2>License:</h2>
@@ -29,7 +39,8 @@
 
 <br>
 <h2>Support:</h2>
-<p>If you like `safe-passwd` and want to see it improve furthur or want me to create intresting projects , You can buy me a coffee </p>
+<p> If you find this project useful please consider **<a href="https://github.com/yasserbdj96/safe-passwd/stargazers">STARRING 🌟</a>** this repository.</p>
+<br><br>
 <div align="center">
     <a href="https://ko-fi.com/yasserbdj96">
         <img src="https://ko-fi.com/img/githubbutton_sm.svg" alt="safe-passwd by yasserbdj96">

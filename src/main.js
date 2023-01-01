@@ -1,5 +1,3 @@
-/*var password_key="1234";*/
-
 //iswork:
 function iswork_f(){
     try {
@@ -32,13 +30,9 @@ function run(){
 function settings_opt(){
 	hideall();
 	document.getElementById("mylist").style.display='block';
-	var rawFile = new XMLHttpRequest();
-    rawFile.overrideMimeType("application/json");
-    rawFile.open("GET", "data.json", true);
-    rawFile.onreadystatechange = function() {
-        if (rawFile.readyState === 4 && rawFile.status == "200") {
-			var data = JSON.parse(rawFile.responseText);
-			data=data["data"];
+	eel.data_file()(
+		function(data_content){
+			data=data_content["data"];
 			for (let i = 0; i < data.length; i++) {
 				eel.decode(data[i]["password"])(
 					function(ret){
@@ -46,33 +40,29 @@ function settings_opt(){
 						var td_url="<td id='url"+i+"'>"+data[i]["url"]+"</td>";
 						var td_user="<td class='copy' id='user"+i+"' onclick='copy("+i+","+'"user"'+")'>"+data[i]["username"]+"</td>";
 						var td_passwd="<td class='copy' id='passfake"+i+"' onclick='copy("+i+","+'"passwd"'+")'>"+stars+"</td><td style='display:none;' id='pass"+i+"'>"+ret+"</td>";
-						var td_opt="<td><a href='#' onclick='edit("+i+")'>EDIT</a> | <a id='see"+i+"' href='#' onclick='see("+i+")'>SEE</a> | <a id='del"+i+"' href='#' onclick='delt("+i+")'>DELETE</a></td>";
+						var td_opt="<td><a href='#' onclick='edit("+i+")'>EDIT</a> | <a id='see"+i+"' href='#' onclick='see("+i+")'>SEE</a> | <a id='del"+i+"' href='#' onclick='delt("+i+")'>DELETE</a> | <a id='info"+i+"' href='#' onclick='info("+i+")'>INFO</a></td>";
 						var td_backup="<td id='oth"+i+"' style='display:none;'>"+data[i]["backup"]+"</td>";
 						document.getElementById("list").innerHTML+="<tr id='l"+i+"'>"+td_url+td_user+td_passwd+td_opt+td_backup+"</tr>";
 					}
 				)
 				
 			}
-        }
-    }
-    rawFile.send(null);
+		}
+	)
 }
 
+//
 function hideall(){
 	document.getElementById("mylist").style.display='none';
 	document.getElementById("addnew").style.display='none';
 	document.getElementById("error").style.display='none';
 }
 
-/*
-function visibility(this) {
-  var x = document.getElementById("myInput");
-  if (x.type === "password") {
-    x.type = "text";
-  } else {
-    x.type = "password";
-  }
-}*/
+//
+function info(i){
+	var other=document.getElementById("oth"+i).textContent;
+	alert(other);
+}
 
 //
 function addnew(){
@@ -122,7 +112,6 @@ function edit(i){
 //
 function editthis(){
 	var i=document.getElementById("editbtn").value;
-
 	var url=document.getElementById("url").value;
 	var user=document.getElementById("user").value;
 	var passwd=document.getElementById("passwd").value;
@@ -155,9 +144,6 @@ function copy(i,opt){
 	}else{
 		var copyText=document.getElementById("pass"+i).textContent;
 	}
-	
-
-
 	// Select the text field
 	/*copyText.select();
 	copyText.setSelectionRange(0, 99999); // For mobile devices*/
@@ -216,3 +202,7 @@ function search(val) {
 	   	 //this is your existing function
 	},0);
 }
+
+//
+console.log("%c %c %c Safe-Passwd by yasserbdj96 %c  %c  https://yasserbdj96.github.io/  ","background: #0f81c1; padding:5px 0;","background: #0f81c1; padding:5px 0;","color: #0f81c1; background: #3b434b; padding:5px 0;","background: #0f81c1; padding:5px 0;","background: #2aaf49; padding:5px 0;");
+//}END.
