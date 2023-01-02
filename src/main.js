@@ -40,7 +40,7 @@ function settings_opt(){
 						var td_url="<td id='url"+i+"'>"+data[i]["url"]+"</td>";
 						var td_user="<td class='copy' id='user"+i+"' onclick='copy("+i+","+'"user"'+")'>"+data[i]["username"]+"</td>";
 						var td_passwd="<td class='copy' id='passfake"+i+"' onclick='copy("+i+","+'"passwd"'+")'>"+stars+"</td><td style='display:none;' id='pass"+i+"'>"+ret+"</td>";
-						var td_opt="<td><a href='#' onclick='edit("+i+")'>EDIT</a> | <a id='see"+i+"' href='#' onclick='see("+i+")'>SEE</a> | <a id='del"+i+"' href='#' onclick='delt("+i+")'>DELETE</a> | <a id='info"+i+"' href='#' onclick='info("+i+")'>INFO</a></td>";
+						var td_opt="<td><a href='javascript:void(0)' onclick='edit("+i+")'>EDIT</a> | <a id='see"+i+"' href='javascript:void(0)' onclick='see("+i+")'>SEE</a> | <a id='del"+i+"' href='javascript:void(0)' onclick='delt("+i+")'>DELETE</a> | <a id='info"+i+"' href='javascript:void(0)' onclick='info("+i+")'>INFO</a></td>";
 						var td_backup="<td id='oth"+i+"' style='display:none;'>"+data[i]["backup"]+"</td>";
 						document.getElementById("list").innerHTML+="<tr id='l"+i+"'>"+td_url+td_user+td_passwd+td_opt+td_backup+"</tr>";
 					}

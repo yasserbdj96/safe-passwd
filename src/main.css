@@ -46,7 +46,7 @@ body::after{
 
 /**/
 .addnew{
-    position: absolute;
+    position: fixed;
     right:9px;
     bottom:9px;
 }

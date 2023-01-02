@@ -23,6 +23,7 @@
 # python main.py -p <YOUR_PASSWORD> -c <YOUR_NEW_PASSWORD> # in order to change the password
 # python main.py -p <YOUR_PASSWORD> -f <YOUR_JSON_PATH>
 # python main.py -p <YOUR_PASSWORD> -po <YOUR_FAVORITE_PORT> # Default is 8080
+# python main.py -p <YOUR_PASSWORD> -a <YOUR_CSV_PATH> # import data from csv file.
 ```
 
 <h2>Screenshot:</h2>

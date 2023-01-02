@@ -10,6 +10,7 @@ ap.add_argument('-p', '--password', required=True)
 ap.add_argument('-c', '--change', required=False)
 ap.add_argument('-f', '--file', required=False)
 ap.add_argument('-po', '--port', required=False)
+ap.add_argument('-a', '--add', required=False)
 args = ap.parse_args()
 
 # json path:
@@ -62,6 +63,30 @@ if args.change!=None:
         f.truncate()
     print("The password has been changed successfully")
     exit()
+
+
+# add csv:
+if args.add!=None:
+    import csv
+    with open(args.add, 'r') as file:
+        csvreader = csv.reader(file)
+        i=0
+        for row in csvreader:
+            passwd=ashar(password_key,row[3],smbls='').encode()
+            entry={"url": f"{row[0]}","username": f"{row[2]}","password": f"{passwd}","backup":""}
+            
+            with open(filename, 'r+') as f:
+                if i!=0:
+                    data = json.load(f)
+                    data["data"].append(entry)
+                    f.seek(0)        # <--- should reset file position to the beginning.
+                    json.dump(data, f, indent=4)
+                    f.truncate()
+            i+=1
+        print("Done!")
+else:
+    pass
+
 
 #
 eel.init('src')
