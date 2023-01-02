@@ -13,6 +13,9 @@ ap.add_argument('-po', '--port', required=False)
 ap.add_argument('-a', '--add', required=False)
 args = ap.parse_args()
 
+#
+global password_key
+
 # json path:
 if args.port==None:
     port = 8080
@@ -31,7 +34,7 @@ with open(filename, 'r+') as f:
     data = json.load(f)
     if data["password"]!="":
         if ashar(args.password,"true",smbls="").encode()==data["password"]:
-            global password_key
+            
             password_key=args.password
         else:
             print("The password is wrong")
@@ -45,7 +48,8 @@ with open(filename, 'r+') as f:
         json.dump(data, f, indent=4)
         f.truncate()
         print("The password has been registered successfully")
-        exit()
+        password_key=np
+        #exit()
 
 # change password:
 if args.change!=None:
@@ -56,14 +60,14 @@ if args.change!=None:
         data["password"]=ashar(new_password,"true",smbls="").encode()
         for i in range(len(data["data"])):
             my_passwd=ashar(old_password,data["data"][int(i)]["password"],smbls='').decode()
-            print(my_passwd)
             data["data"][int(i)]["password"]=ashar(new_password,my_passwd,smbls='').encode()
         f.seek(0)
         json.dump(data, f, indent=4)
         f.truncate()
     print("The password has been changed successfully")
-    exit()
-
+    password_key=new_password
+else:
+    pass
 
 # add csv:
 if args.add!=None:
