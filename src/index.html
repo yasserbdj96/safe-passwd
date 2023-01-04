@@ -8,8 +8,8 @@
         <script type="text/javascript" src="./eel.js"></script>
         <script type="text/javascript" src="./main.js"></script>
         <link rel="stylesheet" href="./main.css">
-        <script src="./index.js" defer></script>
-        <link rel="manifest" href="./manifest.webmanifest">
+        <!--script src="./index.js" defer></script>
+        <link rel="manifest" href="./manifest.webmanifest"-->
         <meta name="theme-color" content="#04AA6D" />
         <link rel="icon" href="./safe-passwd.png">
         <link rel="apple-touch-icon" href="./safe-passwd.png">
@@ -17,7 +17,7 @@
     <body onload="run()">
         <header>
             <div id="addnewlink" class="addnew"><a onclick="addnew()" class="circle" href="#">+</a></div>
-            <div id="backlink" style="display:none;"><a onclick="back()" href="#">Back</a></div>
+            <div id="backlink" style="display:none;"><button class="btn" onclick="back()">BACK</button></div>
         </header>
 
         <div id="error" style="display:none;"></div>
@@ -32,14 +32,13 @@
         </div>
         
 
-        <div id="addnew">
+        <div id="addnew" style="text-align:center;">
             <input class="inpts" type="text" id="url" name="url" placeholder="Url"><br><br>
             <input class="inpts" type="text" id="user" name="username" placeholder="Username"><br><br>
             <input class="inpts" type="text" id="passwd" name="passwd" placeholder="Password"><br><br>
-            <textarea class="inpts" id="other" placeholder="Other"></textarea><br><br>
-            <button id="addbtn" style="display:none;" value="ADD NEW" onclick="addthis()">ADD NEW</button>
-            <button id="editbtn" style="display:none;" onclick="editthis()">EDIT</button>
-
+            <textarea class="inpts" id="other" placeholder="Other" style="height:234px;"></textarea><br><br>
+            <button class="btn" id="addbtn" style="display:none;margin:auto;" value="ADD NEW" onclick="addthis()">ADD NEW</button>
+            <button class="btn" id="editbtn" style="display:none;margin:auto;" onclick="editthis()">EDIT</button>
         </div>
 
     </body>

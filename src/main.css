@@ -88,3 +88,21 @@ body::after{
   width: 80%;
   padding: 10px;
 }
+
+/**/
+.btn{
+  background-color: #303134;
+  border: 1px solid #303134;
+  border-radius: 4px;
+  color: #e8eaed;
+  font-family: arial,sans-serif;
+  font-size: 14px;
+  margin: 11px 4px;
+  padding: 0 16px;
+  line-height: 27px;
+  height: 36px;
+  min-width: 54px;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+}
