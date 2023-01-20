@@ -1,8 +1,21 @@
+#!/bin/bash
+#   |                                                          |
+# --+----------------------------------------------------------+--
+#   |   Code by : yasserbdj96                                  |
+#   |   Email   : yasser.bdj96@gmail.com                       |
+#   |   Github  : https://github.com/yasserbdj96               |
+#   |   BTC     : bc1q2dks8w8uurca5xmfwv4jwl7upehyjjakr3xga9   |
+# --+----------------------------------------------------------+--  
+#   |        all posts #yasserbdj96 ,all views my own.         |
+# --+----------------------------------------------------------+--
+#   |                                                          |
+
+#START{
 import argparse
 import eel
 from ashar import *
 import json
-
+import os
 
 # INPUT ARG
 ap = argparse.ArgumentParser()
@@ -12,6 +25,8 @@ ap.add_argument('-f', '--file', required=False)
 ap.add_argument('-po', '--port', required=False)
 ap.add_argument('-a', '--add', required=False)
 args = ap.parse_args()
+
+pathx=os.path.dirname(os.path.abspath(__file__))
 
 #
 global password_key
@@ -25,7 +40,7 @@ else:
 # json path:
 global filename
 if args.file==None:
-    filename = 'src/data.json'
+    filename = pathx+'/src/data.json'
 else:
     filename = args.file
 
@@ -93,7 +108,7 @@ else:
 
 
 #
-eel.init('src')
+eel.init(pathx+'/src')
 
 # data_file:
 @eel.expose
@@ -160,3 +175,4 @@ def iswork():
 
 #eel.start("main.html",host="127.0.0.1",port=80,size=(1050,500))
 eel.start("index.html",host="127.0.0.1",port=port,mode='default')
+#}END.

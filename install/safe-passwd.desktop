@@ -1,0 +1,24 @@
+#   |                                                          |
+# --+----------------------------------------------------------+--
+#   |   Code by : yasserbdj96                                  |
+#   |   Email   : yasser.bdj96@gmail.com                       |
+#   |   Github  : https://github.com/yasserbdj96               |
+#   |   BTC     : bc1q2dks8w8uurca5xmfwv4jwl7upehyjjakr3xga9   |
+# --+----------------------------------------------------------+--  
+#   |        all posts #yasserbdj96 ,all views my own.         |
+# --+----------------------------------------------------------+--
+#   |                                                          |
+
+#START{
+[Desktop Entry]
+Name=safe-passwd
+Comment=In order to save all passwords as a list that can be accessed securely with a high level of encryption.
+GenericName=safe-passwd
+Exec=sh -c '/usr/local/bin/safe-passwd;${SHELL:-bash}'
+Icon=/usr/share/safe-passwd/safe-passwd.png
+Type=Application
+Terminal=true
+Categories=RevisionControl;RemoteAccess;
+MimeType=text/x-safe-passwd
+Keywords=pasword;safe;
+#}END.

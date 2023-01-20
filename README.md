@@ -26,6 +26,23 @@
 # python main.py -p <YOUR_PASSWORD> -a <YOUR_CSV_PATH> # import data from csv file.
 ```
 
+<h4>Ubuntu Installation:</h4>
+
+```bash
+# Dwonload:
+❯ git clone https://github.com/yasserbdj96/safe-passwd.git
+
+# Go to Installation folder:
+❯ cd safe-passwd/install
+
+# Install:
+❯ bash install.sh -i
+❯ safe-passwd <ARGUMENTS>
+
+# Uninstall:
+❯ bash install.sh -u
+```
+
 <h2>Screenshot:</h2>
 
 <div align="center">
