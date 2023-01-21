@@ -1,7 +1,7 @@
 <div align="center">
   <br><img align="center" height="200" src="https://raw.githubusercontent.com/yasserbdj96/safe-passwd/main/src/safe-passwd.png" alt="safe-passwd by yasserbdj96">
   <h1>Safe Password</h1>
-  <strong>In order to save all passwords as a list that can be accessed securely with a high level of encryption.</strong>
+  <strong>Password manager to save all passwords as a securely accessible list with high level of encryption.</strong>
 </div>
 <br>
 
